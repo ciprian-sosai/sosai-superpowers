@@ -14,6 +14,8 @@ git clone https://github.com/ciprian-sosai/sosai-superpowers ~/.claude/skills/so
 
 Restart Claude cowork. Skills are available immediately as `sosai-superpowers:<skill-name>`.
 
+📖 **New to cowork or this plugin?** Read the [Complete Beginner's Guide](docs/guide.md).
+
 ---
 
 ## Skills
