@@ -1,0 +1,35 @@
+---
+name: brainstorming
+description: Use when starting any task — before researching, writing, planning, or acting — to clarify intent, constraints, and success criteria
+---
+
+# Brainstorming
+
+## Overview
+
+Clarify what you're actually building before you build it. Unexamined assumptions cause more wasted work than technical mistakes.
+
+**Hard gate:** Do NOT produce any output, start any research, or take any action until you have presented a design and the user has approved it.
+
+## Process
+
+1. **Understand context** — review any relevant files, previous work, or background
+2. **Ask clarifying questions** — one at a time, until you understand purpose, constraints, and success criteria
+3. **Propose 2-3 approaches** — with trade-offs and your recommendation
+4. **Present design** — get approval before proceeding
+5. **Write a brief spec** — save to `docs/specs/YYYY-MM-DD-<topic>.md`
+
+## Rules
+
+- One question per message — never bundle multiple questions
+- Prefer multiple choice over open-ended when possible
+- YAGNI — remove anything not explicitly needed
+- No implementation until design is approved
+
+## Red Flags
+
+| Thought | Reality |
+|---|---|
+| "This is too simple to need clarification" | Simple tasks hide the most assumptions. Ask. |
+| "I can figure out what they want" | You cannot. Ask. |
+| "Let me just start and adjust" | Starting wrong wastes more time than asking. |
