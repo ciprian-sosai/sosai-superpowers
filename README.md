@@ -39,6 +39,8 @@ Restart Claude cowork. Skills are available immediately as `sosai-superpowers:<s
 | `context-isolation` | When switching tasks — avoid context bleed |
 | `source-before-claiming` | Before stating any fact — know your source |
 | `research-before-acting` | Before producing output — understand the situation |
+| `working-with-financial-services` | When using the Anthropic financial-services plugin |
+| `model-assumptions-audit` | After building any financial model — verify assumptions and plausibility |
 
 ---
 
