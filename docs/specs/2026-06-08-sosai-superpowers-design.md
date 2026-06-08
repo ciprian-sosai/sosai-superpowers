@@ -158,6 +158,19 @@ A `session-start` hook injects `using-sosai-superpowers` at the start of every c
 
 ---
 
+## Interaction with Specialized Plugins
+
+sosai-superpowers operates at the **process layer** — it governs how to work (clarify, plan, verify). Domain-specific plugins (finance, legal, marketing, etc.) operate at the **domain layer** — they govern what to do in a specific area.
+
+They are complementary and do not conflict:
+- sosai-superpowers skills wrap around domain tasks (before and after)
+- Domain skills handle the substance of the task itself
+- Users with both installed get process discipline + domain expertise
+
+The `using-sosai-superpowers` meta-skill explicitly communicates this to the agent.
+
+---
+
 ## Out of Scope (v1)
 
 - A unified plugin working in both Claude Code and cowork simultaneously (v2 candidate)

@@ -289,6 +289,17 @@ Use the `Skill` tool with the skill name: `sosai-superpowers:<skill-name>`
 | Starting research or analysis | `research-before-acting` |
 | Creating a new skill | `writing-skills` |
 
+## Relationship with Specialized Plugins
+
+sosai-superpowers governs **process discipline** — how to work. It does not replace domain-specific plugins (finance, legal, marketing, etc.) — those govern **what to do** in a specific domain.
+
+Use both together:
+1. `sosai-superpowers:brainstorming` → clarify scope
+2. `finance:journal-entry` (or whichever domain skill applies) → do the domain task
+3. `sosai-superpowers:verification-before-completion` → verify before delivering
+
+If a specialized plugin and a sosai-superpowers skill both seem to apply, use both — they operate at different levels and do not conflict.
+
 ## Red Flags — You Are Rationalizing
 
 | Thought | Reality |
@@ -297,6 +308,7 @@ Use the `Skill` tool with the skill name: `sosai-superpowers:<skill-name>`
 | "I need more context first" | Skill check comes BEFORE gathering context. |
 | "I already know what to do" | Skills prevent the failure modes you don't see coming. |
 | "This doesn't feel like a formal task" | Any action = check for skills. |
+| "The specialized plugin covers this" | It covers the domain. sosai-superpowers covers the process. Use both. |
 ```
 
 - [ ] **Step 2: Verify skill meets CSO rules**
