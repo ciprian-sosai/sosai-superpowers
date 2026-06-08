@@ -170,6 +170,38 @@ Each new HTML file clears the previous events file automatically.
 </div>
 ```
 
+### Cards (grid of choices)
+```html
+<h2>Choose a focus area</h2>
+<div class="cards">
+  <div class="card" data-choice="strategy">
+    <div class="card-title">Strategy</div>
+    <div class="card-body">Long-term direction and positioning</div>
+  </div>
+  <div class="card" data-choice="operations">
+    <div class="card-title">Operations</div>
+    <div class="card-body">Day-to-day process improvements</div>
+  </div>
+  <div class="card" data-choice="people">
+    <div class="card-title">People</div>
+    <div class="card-body">Team structure and capabilities</div>
+  </div>
+</div>
+```
+
+### Mockup (freeform content container)
+```html
+<h2>Proposed report structure</h2>
+<div class="mockup">
+  <h3>Executive Summary</h3>
+  <p>3-5 bullet points covering key findings</p>
+  <h3>Analysis</h3>
+  <p>Data breakdown by region / segment</p>
+  <h3>Recommendations</h3>
+  <p>Ranked action items with owners and timelines</p>
+</div>
+```
+
 ---
 
 ## File Naming
