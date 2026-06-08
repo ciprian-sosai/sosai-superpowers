@@ -23,6 +23,7 @@ Restart Claude cowork. Skills are available immediately as `sosai-superpowers:<s
 | Skill | When to use |
 |---|---|
 | `using-sosai-superpowers` | Auto-loaded at session start |
+| `getting-started` | When you're new to the plugin — interactive tour of all skills |
 | `brainstorming` | Before acting on any task — clarify intent first |
 | `writing-plans` | Before executing — plan the work |
 | `executing-plans` | When running a written plan |

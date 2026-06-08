@@ -23,6 +23,7 @@ Use the `Skill` tool with the skill name: `sosai-superpowers:<skill-name>`
 
 | Situation | Skill to invoke |
 |---|---|
+| User is new to the plugin or asks how it works | `getting-started` |
 | Starting any task — even a "simple" one | `brainstorming` |
 | About to execute multi-step work | `writing-plans` |
 | Running a written plan | `executing-plans` |
