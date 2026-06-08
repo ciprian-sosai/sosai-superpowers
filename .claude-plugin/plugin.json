@@ -1,0 +1,12 @@
+{
+  "name": "sosai-superpowers",
+  "description": "Cowork discipline skills: clarify before acting, plan before executing, verify before delivering",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ciprian Sosai",
+    "email": "ciprian@sosai.ro"
+  },
+  "homepage": "https://github.com/ciprian-sosai/sosai-superpowers",
+  "repository": "https://github.com/ciprian-sosai/sosai-superpowers",
+  "license": "MIT"
+}
