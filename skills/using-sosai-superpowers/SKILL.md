@@ -39,6 +39,7 @@ Use the `Skill` tool with the skill name: `sosai-superpowers:<skill-name>`
 | Starting research or analysis | `research-before-acting` |
 | Creating a new skill | `writing-skills` |
 | Working with the financial-services plugin | `working-with-financial-services` |
+| Working with the finance (accounting) plugin | `working-with-finance` |
 | After building any financial model or analysis | `model-assumptions-audit` |
 
 ## Relationship with Specialized Plugins
