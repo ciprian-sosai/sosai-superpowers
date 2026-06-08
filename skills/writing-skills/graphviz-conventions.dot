@@ -1,0 +1,97 @@
+// Graphviz conventions for sosai-superpowers skill flowcharts.
+// Adapted from superpowers by Jesse Vincent (https://github.com/obra/superpowers) — MIT license.
+
+digraph STYLE_GUIDE {
+    // The style guide for our process DSL, written in the DSL itself
+
+    // Node type examples with their shapes
+    subgraph cluster_node_types {
+        label="NODE TYPES AND SHAPES";
+
+        // Questions are diamonds
+        "Is this a question?" [shape=diamond];
+
+        // Actions are boxes (default)
+        "Take an action" [shape=box];
+
+        // Commands are plaintext
+        "run the script" [shape=plaintext];
+
+        // States are ellipses
+        "Current state" [shape=ellipse];
+
+        // Warnings are octagons
+        "STOP: Critical warning" [shape=octagon, style=filled, fillcolor=red, fontcolor=white];
+
+        // Entry/exit are double circles
+        "Process starts" [shape=doublecircle];
+        "Process complete" [shape=doublecircle];
+    }
+
+    // Edge naming conventions
+    subgraph cluster_edge_types {
+        label="EDGE LABELS";
+
+        "Binary decision?" [shape=diamond];
+        "Yes path" [shape=box];
+        "No path" [shape=box];
+
+        "Binary decision?" -> "Yes path" [label="yes"];
+        "Binary decision?" -> "No path" [label="no"];
+
+        "Multiple choice?" [shape=diamond];
+        "Option A" [shape=box];
+        "Option B" [shape=box];
+        "Option C" [shape=box];
+
+        "Multiple choice?" -> "Option A" [label="condition A"];
+        "Multiple choice?" -> "Option B" [label="condition B"];
+        "Multiple choice?" -> "Option C" [label="otherwise"];
+    }
+
+    // Naming patterns
+    subgraph cluster_naming_patterns {
+        label="NAMING PATTERNS";
+
+        // Questions end with ?
+        "Should I do X?";
+        "Can this be Y?";
+        "Is Z true?";
+
+        // Actions start with verb
+        "Write the plan";
+        "Research the topic";
+        "Verify the output";
+
+        // States describe situation
+        "Plan approved";
+        "Task complete";
+        "Blocked on input";
+    }
+
+    // When to use which shape
+    subgraph cluster_shape_rules {
+        label="WHEN TO USE EACH SHAPE";
+
+        "Choosing a shape" [shape=ellipse];
+        "Is it a decision?" [shape=diamond];
+        "Use diamond" [shape=diamond, style=filled, fillcolor=lightblue];
+        "Is it a warning?" [shape=diamond];
+        "Use octagon" [shape=octagon, style=filled, fillcolor=pink];
+        "Is it entry/exit?" [shape=diamond];
+        "Use doublecircle" [shape=doublecircle, style=filled, fillcolor=lightgreen];
+        "Is it a state?" [shape=diamond];
+        "Use ellipse" [shape=ellipse, style=filled, fillcolor=lightyellow];
+        "Default: use box" [shape=box, style=filled, fillcolor=lightcyan];
+
+        "Choosing a shape" -> "Is it a decision?";
+        "Is it a decision?" -> "Use diamond" [label="yes"];
+        "Is it a decision?" -> "Is it a warning?" [label="no"];
+        "Is it a warning?" -> "Use octagon" [label="yes"];
+        "Is it a warning?" -> "Is it entry/exit?" [label="no"];
+        "Is it entry/exit?" -> "Use doublecircle" [label="yes"];
+        "Is it entry/exit?" -> "Is it a state?" [label="no"];
+        "Is it a state?" -> "Use ellipse" [label="yes"];
+        "Is it a state?" -> "Default: use box" [label="no"];
+    }
+}
