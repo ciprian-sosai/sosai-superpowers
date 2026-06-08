@@ -7,17 +7,20 @@
 
 ## Overview
 
-`sosai-superpowers` is a Claude cowork plugin that mirrors the [superpowers](https://github.com/obra/superpowers) plugin structure — bringing the same process discipline to cowork tasks that superpowers brings to software development. It is designed for personal use and public sharing via GitHub, targeting cowork power users, business professionals, and Claude Code developers who want parity between both environments.
+`sosai-superpowers` is an original Claude cowork plugin inspired by the [superpowers](https://github.com/obra/superpowers) plugin by Jesse Vincent. It brings the same philosophy — enforce discipline before action — to cowork tasks. All skill content is written from scratch for the cowork context. The 1-to-1 mapping with superpowers is a structural guide, not a copy.
+
+It is designed for personal use and public sharing via GitHub, targeting generic cowork users regardless of domain — not specific to finance, marketing, or any other vertical.
 
 ---
 
 ## Goals
 
 - Enforce discipline before action in cowork tasks (clarify, plan, verify)
-- Provide a full mirror of superpowers skills adapted to business/cowork context
+- Provide original skills inspired by superpowers, written from scratch for cowork
+- Be generic — useful to any cowork user, not tied to a specific domain
 - Be installable by anyone via `git clone`
 - Be accessible to non-technical users (no assumed coding knowledge)
-- Credit and reference superpowers where discipline is identical
+- Credit superpowers by Jesse Vincent as the inspiration in the README
 
 ---
 
@@ -139,8 +142,8 @@ A `session-start` hook injects `using-sosai-superpowers` at the start of every c
 
 ## Skill Authoring Principles
 
-1. **Reference superpowers** where discipline is identical — avoid duplication, credit the source
-2. **Use cowork examples** — business tasks, not code (campaigns, reports, vendor reviews, research)
+1. **Original content only** — all skill text written from scratch; superpowers credited as inspiration in README, not inline
+2. **Generic cowork examples** — tasks any cowork user might do (research, planning, reviewing, reporting) — not domain-specific
 3. **Audience-aware writing** — accessible to non-technical business professionals; no assumed knowledge of TDD, git, or software concepts
 4. **Stay concise** — follow the same token-efficiency rules as superpowers (`<150 words` for session-start skills, `<500 words` for others)
 5. **CSO (Claude Search Optimization)** — descriptions start with "Use when...", trigger conditions only, no workflow summary
