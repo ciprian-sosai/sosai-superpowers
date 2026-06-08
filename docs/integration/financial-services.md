@@ -31,19 +31,52 @@ financial-services stages every output for human review. sosai-superpowers is wh
 
 ---
 
-## Where sosai-superpowers adds the most value
+## When to use sosai-superpowers — and when to skip it
+
+### The redundancy question
+
+financial-services skills already ask clarifying questions at the start of each workflow. `ic-memo` asks about the deal thesis and IC decision criteria. `initiating-coverage` asks about the investment question and rating thesis. If sosai-superpowers also runs `brainstorming` or `outcome-first-thinking` first, you answer overlapping questions twice. That is friction, not value.
+
+**The distinction:** domain skill questions ask *what* (deal thesis, entry multiple, rating). sosai-superpowers questions ask *whether* and *why* (are we solving the right problem, have we confirmed the audience, is the scope correct before we build anything). They are not the same question.
+
+### The handoff question
+
+In the same cowork session, context is shared — it is the conversation thread. If `brainstorming` surfaces "the IC needs to decide by Friday and the key risk is management depth, not financials," that is in context when `ic-memo` runs. There is no formal structured handoff, but the information is there.
+
+For subagents (when using `dispatching-parallel-agents` to run `cim-builder`, `datapack-builder`, and `teaser` in parallel): subagents do not inherit session context. Key findings from brainstorming — deal positioning, audience, consistency requirements — must be explicitly included in each subagent prompt. They do not transfer automatically.
+
+### Use sosai-superpowers when the task is ambiguous, high-stakes, or already failing
+
+| Situation | Use sosai-superpowers | Why |
+|---|---|---|
+| IC memo where the thesis is unclear | `brainstorming` + `outcome-first-thinking` | Surface what the IC actually needs to decide before building the memo |
+| Parallel deliverables (CIM + deck + teaser) | `dispatching-parallel-agents` | Consistency across documents requires explicit coordination — the domain skills run independently |
+| NAV tieout break after a previous fix attempt | `systematic-problem-solving` | The domain skill investigates; this enforces the discipline of root cause before another fix |
+| Research note with figures from multiple sources | `source-before-claiming` | Legal and compliance exposure — the domain skill produces the note but does not enforce citation |
+| LBO or DCF model going to IC or client | `model-assumptions-audit` | Assumption documentation and plausibility — neither plugin covers this |
+| Deliverable scope is unclear before starting | `brainstorming` | Clarify audience, page count, what "done" looks like — before the domain skill generates anything |
+
+### Skip sosai-superpowers when the task is routine and well-defined
+
+| Situation | Just use the domain skill | Why |
+|---|---|---|
+| Updating a model with new earnings data | `model-update` directly | Known inputs, known outputs, no scope ambiguity |
+| KYC document parsing | `kyc-doc-parse` directly | Deterministic extraction, no judgment required |
+| Rolling forward a fund period with no breaks | `roll-forward` directly | Mechanical, domain skill handles it end to end |
+| Refreshing a deck with updated numbers | `deck-refresh` directly | Refinement task, no new scope or judgment |
+| Pulling a standard accrual schedule | `accrual-schedule` directly | Calculation task, no ambiguity |
 
 ### High value
 
-**Complex analytical deliverables** — IC memos, initiating coverage reports, CIMs, pitch decks. These require structured problem decomposition, parallel workstreams, and disciplined verification. Every sosai-superpowers skill is relevant.
+**Complex analytical deliverables** — IC memos, initiating coverage reports, CIMs, pitch decks. The domain skill generates the artifact; sosai-superpowers ensures the scope is correct before it starts and the output is complete before it reaches reviewers.
 
-**Reconciliation and close workflows** — GL reconciliation, NAV tieouts, break tracing. These are canonical systematic-problem-solving scenarios: a discrepancy exists, hypotheses must be formed and tested one at a time. `systematic-problem-solving` before `break-trace` prevents jumping to the first plausible explanation.
+**Reconciliation and close workflows** — GL reconciliation, NAV tieouts, break tracing. `systematic-problem-solving` fills the gap the domain skill leaves: it does not ask whether you have correctly identified the problem before attempting a fix.
 
-**Any client-facing or externally distributed output** — Research notes, client reports, CIMs, investment proposals. `source-before-claiming` here is risk management, not just quality control.
+**Any client-facing or externally distributed output** — Research notes, client reports, CIMs, investment proposals. `source-before-claiming` is risk management. The domain skill produces the content; this enforces citation discipline before it leaves the desk.
 
 ### Low value
 
-**Deterministic mechanical tasks** — `accrual-schedule`, `kyc-doc-parse`, `roll-forward`: data-in/data-out workflows. `verification-before-completion` applies; other process skills do not.
+**Deterministic mechanical tasks** — `accrual-schedule`, `kyc-doc-parse`, `roll-forward`: data-in/data-out workflows. `verification-before-completion` applies if the output is material; other process skills do not.
 
 **Template completion** — `deck-refresh`, `clean-data-xls`, `audit-xls`: refinement tasks on existing artifacts. `verification-before-completion` only.
 

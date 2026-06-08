@@ -27,23 +27,53 @@ sosai-superpowers  →  verify before posting, sign-off, or distribution
 
 ---
 
-## Where sosai-superpowers adds the most value
+## When to use sosai-superpowers — and when to skip it
+
+### The redundancy question
+
+The finance plugin already asks clarifying questions. `/journal-entry` asks which entry type, which period, which entity. `/reconciliation` asks which type. If sosai-superpowers also runs `brainstorming` or `outcome-first-thinking` first, you answer overlapping questions twice. That is friction, not value.
+
+**The distinction:** domain plugin questions ask *what* (which type, which period, which entity). sosai-superpowers questions ask *whether* and *why* (is this the right approach, have we confirmed the period cut-off, are we solving the right problem). They are not the same question.
+
+### The handoff question
+
+In the same cowork session, context is shared — it is the conversation thread. If you run `brainstorming` and surface "this variance commentary is for the board, not the operations team," that is in context when `/variance-analysis` runs. There is no formal structured handoff, but the information is there.
+
+For subagents (if using `dispatching-parallel-agents`): subagents do not inherit session context. Key findings from brainstorming must be explicitly included in the subagent prompt — they do not transfer automatically.
+
+### Use sosai-superpowers when the task is ambiguous, high-stakes, or already failing
+
+| Situation | Use sosai-superpowers | Why |
+|---|---|---|
+| Close with unresolved breaks | `systematic-problem-solving` | Root cause before adjusting — the domain skill does not ask this |
+| Variance commentary going to the board | `source-before-claiming` | Every bridge figure needs a traceable source — the domain skill produces the analysis but does not enforce citation |
+| SOX testing with a potential material weakness | `systematic-problem-solving` | Design deficiency vs. operating effectiveness failure requires structured investigation |
+| Multi-entity close where context could bleed | `context-isolation` | Explicit separation — the domain skill does not enforce this |
+| Journal entry for an unusual transaction | `outcome-first-thinking` | Confirm the accounting treatment before generating the entry |
+| Second or third fix attempt on the same break | `systematic-problem-solving` | Multiple failed fixes signal a structural problem, not a data problem |
+
+### Skip sosai-superpowers when the task is routine and well-defined
+
+| Situation | Just use the domain skill | Why |
+|---|---|---|
+| Standard recurring entries (depreciation, amortization) | `/journal-entry` directly | Deterministic, no judgment required |
+| Bank rec with no prior breaks | `/reconciliation` directly | Straightforward matching, domain skill handles it |
+| Pulling a standard financial statement | `/financial-statements` directly | No ambiguity in scope or treatment |
+| SOX testing for a control area with no deficiency history | `/sox-testing` directly | Routine execution, domain skill guides the workpaper |
 
 ### High value
 
-**Month-end close coordination** — `close-management` covers the framework; sosai-superpowers skills handle the process discipline: `outcome-first-thinking` to define the close scope, `context-isolation` between entity workstreams, `verification-before-completion` before period lock.
+**Reconciliation break investigation** — Any unreconciled item is a structured problem: a discrepancy exists, its cause is unknown, multiple explanations are plausible. `systematic-problem-solving` before `reconciliation` enforces root cause investigation before any adjustment. This is where the domain skill ends and sosai-superpowers begins.
 
-**Reconciliation break investigation** — Any unreconciled item is a structured problem: a discrepancy exists, its cause is unknown, multiple explanations are plausible. `systematic-problem-solving` before `reconciliation` enforces root cause investigation before any adjustment.
+**Management reporting and variance commentary** — `variance-analysis` produces the decomposition. `source-before-claiming` ensures every bridge figure traces to a source before it reaches management. Unsourced variance attribution affects decisions — this is the gap the domain skill does not fill.
 
-**Management reporting and variance commentary** — `variance-analysis` output goes to management. `source-before-claiming` ensures every bridge figure traces to a source. Unsourced variance commentary is worse than none — it creates false confidence in wrong attribution.
-
-**SOX workpaper documentation** — `verification-before-completion` before `sox-testing` deliverables confirms all required evidence fields are populated and deficiency classifications are supported before the workpaper goes to the auditor.
+**SOX workpaper documentation** — `verification-before-completion` before handing workpapers to the auditor confirms all required evidence fields are populated and deficiency classifications are supported. The domain skill generates the workpaper; this checks it is complete.
 
 ### Low value
 
-**Routine entry posting** — Standard, low-judgment entries (recurring depreciation, straight-line amortization) where the calculation is deterministic and the review is simple. `verification-before-completion` applies; other process skills do not.
+**Routine entry posting** — Standard, low-judgment entries (recurring depreciation, straight-line amortization) where the calculation is deterministic and the review is simple. `verification-before-completion` applies if the entry is material; other process skills do not.
 
-**Standard report generation** — Pulling a pre-formatted financial statement with no material variances. Minimal process overhead needed.
+**Standard report generation** — Pulling a pre-formatted financial statement with no material variances. The domain skill handles it end to end.
 
 ---
 
