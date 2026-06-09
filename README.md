@@ -8,11 +8,21 @@ Inspired by [superpowers](https://github.com/obra/superpowers) by Jesse Vincent.
 
 ## Installation
 
+**macOS / Linux:**
 ```bash
 git clone https://github.com/ciprian-sosai/sosai-superpowers ~/.claude/skills/sosai-superpowers
+mkdir -p ~/.claude/plugins/data/sosai-superpowers-skills-dir
+```
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/ciprian-sosai/sosai-superpowers "$env:USERPROFILE\.claude\skills\sosai-superpowers"
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\plugins\data\sosai-superpowers-skills-dir"
 ```
 
 Restart Claude cowork. Skills are available immediately as `sosai-superpowers:<skill-name>`.
+
+> **How it works:** cowork discovers plugins from `~/.claude/skills/<name>/` only when a matching registration directory exists at `~/.claude/plugins/data/<name>-skills-dir/`. Both steps are required.
 
 📖 **New to cowork or this plugin?** Read the [Complete Beginner's Guide](docs/guide.md).
 
