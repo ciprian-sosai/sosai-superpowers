@@ -1,6 +1,10 @@
 ---
 name: working-with-legal
-description: Use when working with the Anthropic legal plugin — to know which sosai-superpowers skills wrap each stage of a legal workflow and in what order
+description: Maps sosai-superpowers process skills to each stage of a legal workflow — clarify, plan, execute, verify, and sign-off — so the right discipline is applied in the right order. Use when working with the Anthropic legal plugin to know which sosai-superpowers skills wrap each stage of a legal workflow and in what order.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Working with the legal plugin
@@ -71,6 +75,40 @@ The wrong response to a compliance violation is immediate remediation. Root caus
 
 **3. `verification-before-completion` before `signature-request`**
 Execution is irreversible. Before routing for signature: confirm all open RED flags are resolved or formally accepted with documented rationale, the correct document version is being sent, the signing order is correct, the counterparty details are accurate, and the approval level matches the commitment threshold. A signature on the wrong version or without required approvals is more expensive to unwind than the verification check that catches it.
+
+## Examples
+
+**Example 1: Contract review before counterparty distribution**
+User: "We need to review this vendor MSA and send our redlines to their counsel by Friday."
+Applied: The skill routes through `outcome-first-thinking` to define the review goal, then `review-contract`, then requires `source-before-claiming` before any redline goes out so every flagged deviation cites the specific clause and playbook rule.
+Result: Counsel receives a redline package where every flag is traceable — no unsourced inferences that could unravel in negotiation.
+
+**Example 2: Multi-jurisdiction compliance check**
+User: "We're launching in the EU and California — confirm we're compliant with data residency rules in both."
+Applied: The skill triggers `dispatching-parallel-agents` to run a separate `compliance-check` per jurisdiction, preventing regulatory frameworks from being conflated in a single thread.
+Result: Two independent compliance summaries with clear pass/fail per jurisdiction, ready for `verification-before-completion` before the launch decision.
+
+**Example 3: Repeated compliance failure during vendor onboarding**
+User: "This is the third vendor in a row that failed our data processing agreement review at the same clause."
+Applied: The skill flags this as a structural signal and routes to `systematic-problem-solving` before any remediation — root cause first to determine if the gap is in the playbook, the template, or the review process.
+Result: Root cause identified as a missing standard clause in the template, not isolated vendor failures — one fix closes the recurring gap.
+
+## Troubleshooting
+
+**Routed straight to `review-contract` without running `outcome-first-thinking` first**
+Go back. Define the review goal and decision threshold before generating findings. A contract review without a clear outcome statement produces flags that cannot be prioritized by business risk.
+
+**Ran `source-before-claiming` after sending redlines to counsel, not before**
+Sourcing must happen before distribution. If unsourced flags have already been sent, flag the gap to counsel explicitly and resend a corrected version with full clause citations before negotiation begins.
+
+**Used `systematic-problem-solving` after a one-off violation before checking for recurrence**
+Check whether the same violation has appeared in prior reviews first. A single isolated incident requires a different response than a pattern. Run the pattern check before scoping the problem statement.
+
+**Passed `dispatching-parallel-agents` output directly to `signature-request` without `verification-before-completion`**
+Multi-jurisdiction outputs must be consolidated and verified before any execution step. Ensure all jurisdiction findings are resolved or formally accepted with documented rationale before routing for signature.
+
+**Skipped `requesting-peer-review` before sending to counterparty because the contract looked clean**
+A clean-looking contract is not a reviewed contract. Any document going to a counterparty or legal counsel requires peer review — route through `requesting-peer-review` regardless of apparent simplicity.
 
 ## Red Flags
 

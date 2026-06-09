@@ -1,6 +1,10 @@
 ---
 name: systematic-problem-solving
-description: Use when something isn't working, a result is unexpected, a process is failing, or an output is wrong — before proposing fixes
+description: Guides structured root cause investigation before any fix is proposed, using a four-phase process of evidence gathering, pattern analysis, hypothesis testing, and verified resolution. Use when something isn't working, a result is unexpected, a process is failing, or an output is wrong — before proposing fixes.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Systematic Problem Solving
@@ -118,6 +122,40 @@ Complete each phase before proceeding to the next.
    - Each fix revealing a new problem in a different place = structural issue
    - Fixes requiring major rework = wrong approach
    - Stop and discuss with your human partner before attempting more fixes
+
+## Examples
+
+**Example 1: Finance — recurring reporting discrepancy**
+User: "Our monthly revenue report keeps showing different totals than the CRM. We've tried fixing it twice and it's still wrong."
+Applied: The skill blocks further fix attempts and runs Phase 1 — pinpointing exactly where the numbers diverge in the chain from CRM to report.
+Result: Root cause identified as a currency conversion step applied inconsistently; one targeted fix resolves the discrepancy.
+
+**Example 2: Operations — vendor onboarding process keeps stalling**
+User: "New vendor onboarding is taking 6 weeks instead of 2. We added a checklist last month but it didn't help."
+Applied: Phase 2 pattern analysis compares vendors who onboarded on time vs. those who stalled, listing every difference in handling.
+Result: The stalls trace to a single approver who is only available biweekly; the fix is a calendar change, not a process overhaul.
+
+**Example 3: Marketing — email campaign underperforming despite previous fixes**
+User: "Open rates dropped again even after we rewrote the subject lines. I don't know what else to try."
+Applied: The skill flags 2 failed fixes and invokes the structural check from Phase 4, pausing further changes to reassess the full send strategy.
+Result: Investigation reveals the send-time setting was never corrected after a timezone migration — the root cause was never subject lines.
+
+## Troubleshooting
+
+**Phase 1 skipped because the fix seemed obvious**
+Restate the problem precisely using the Phase 1 questions before touching anything. An obvious fix is a hypothesis, not a conclusion — treat it as one.
+
+**Multiple things changed at once to "cover all bases"**
+Undo all changes and reintroduce them one at a time. Simultaneous changes make it impossible to identify what actually worked or caused a new problem.
+
+**Hypothesis confirmed in testing but the fix didn't hold in practice**
+The test was likely too narrow. Return to Phase 2 and check whether the working test case matches the real conditions that caused the original failure.
+
+**3+ fixes have been tried but the skill hasn't triggered the structural check**
+Manually invoke Phase 4's structural check now. Count fixes attempted, look for each fix uncovering a new problem in a different place — that pattern signals a design issue, not an execution issue.
+
+**Phase 1 evidence is assumptions, not actuals**
+Discard assumed evidence and collect only what is directly observable — actual outputs, timestamps, stated stakeholder feedback. Assumptions in Phase 1 produce wrong hypotheses in Phase 3.
 
 ## Red Flags — Stop Immediately
 

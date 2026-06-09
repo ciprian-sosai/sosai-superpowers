@@ -1,6 +1,10 @@
 ---
 name: working-with-operations
-description: Use when working with the Anthropic operations plugin — to know which sosai-superpowers skills wrap each stage of an operational workflow and in what order
+description: Maps sosai-superpowers process discipline skills to each stage of an operational workflow, specifying which skill to apply before, during, and after each stage. Use when working with the Anthropic operations plugin — to know which sosai-superpowers skills wrap each stage of an operational workflow and in what order.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Working with the operations plugin
@@ -60,6 +64,40 @@ A risk register with no decision context is comprehensive but un-actionable. Def
 
 **3. `verification-before-completion` before `change-request` is submitted**
 A change request is a commitment. Once routed, errors require recall, revision, and re-routing. Before submitting: confirm impact analysis covers all affected systems, rollback plan is specific and actionable, required approvals are identified, and the change window is confirmed. This check takes minutes; rework after routing takes days.
+
+## Examples
+
+**Example 1: Launching a process improvement initiative**
+User: "We need to fix our procurement approval process — too many delays."
+Applied: The skill directs the user to run `systematic-problem-solving` before opening `process-optimization`, then sequences `writing-plans` and `process-doc` through to `verification-before-completion`.
+Result: The workflow surfaces the actual bottleneck before redesign begins, and the final SOP is verified before routing to the process owner for sign-off.
+
+**Example 2: Submitting a change request for a vendor system migration**
+User: "I need to submit a change request to migrate our ERP to the new vendor."
+Applied: The skill flags that `verification-before-completion` must run before submission, prompting a check that impact analysis, rollback plan, and approval chain are all in order.
+Result: Gaps in the rollback plan are caught before routing, avoiding a recall and re-routing cycle that would have taken days.
+
+**Example 3: Preparing a risk register for a board-level go/no-go decision**
+User: "Can you generate a risk register for the supply chain consolidation?"
+Applied: The skill requires `outcome-first-thinking` first to name the specific decision — board-level go/no-go — before `risk-assessment` is opened, scoping the register to relevant categories and risk tolerance.
+Result: The risk register is decision-scoped and actionable, not a generic comprehensive list that the board cannot act on.
+
+## Troubleshooting
+
+**Running `process-optimization` and then `systematic-problem-solving` in the wrong order**
+The workflow table is sequential — do not reverse it. `process-optimization` designs a future state; it cannot identify root cause. Always run `systematic-problem-solving` first, then hand the confirmed root cause into `process-optimization`.
+
+**Using `outcome-first-thinking` after the risk register is already generated**
+Running `outcome-first-thinking` after `risk-assessment` is too late to scope the register. If the risk register is already complete, check whether it maps to a named decision. If not, discard and restart with `outcome-first-thinking` first.
+
+**Skipping `verification-before-completion` because the change request "looks complete"**
+The check is required regardless of perceived completeness. A change request that looks complete is the most likely place to skip the check — and the most likely place to find an unspecified rollback plan or missing approver.
+
+**Passing no context to `process-doc` after `process-optimization` completes**
+The output of `process-optimization` — future-state design, rationale, constraints — must be passed explicitly as context when opening `process-doc`. Without it, the SOP will not reflect the redesign decisions made upstream.
+
+**Applying the Change Management pattern to a process improvement initiative, or vice versa**
+The two workflow patterns are not interchangeable. Change Management is for a discrete change being routed for approval; Process Improvement is for redesigning how work is done. Confirm which pattern applies before starting.
 
 ## Red Flags
 

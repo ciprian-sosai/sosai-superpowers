@@ -1,6 +1,10 @@
 ---
 name: working-with-financial-services
-description: Use when working with the Anthropic financial-services plugin — to know which sosai-superpowers skills wrap each stage of a financial workflow and in what order
+description: Maps sosai-superpowers process skills to each stage of a financial workflow — clarifying, planning, verifying, and reviewing — in the correct sequence. Use when working with the Anthropic financial-services plugin to know which sosai-superpowers skills wrap each stage of a financial workflow and in what order.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Working with financial-services
@@ -89,6 +93,40 @@ writing-plans → [model skill] → model-assumptions-audit
 ```
 
 `model-assumptions-audit` checks numerical plausibility and documents where each key assumption came from. `verification-before-completion` checks structural completeness. They are complementary.
+
+## Examples
+
+**Example 1: IC Memo for a private equity deal**
+User: "I need to build an IC memo for a new platform acquisition."
+Applied: The skill sequences brainstorming and outcome-first-thinking before any financial-services stage runs, then wraps the completed memo with verification-before-completion and requesting-peer-review before the IC gate.
+Result: The IC memo arrives at review complete, sourced, and structurally consistent — reviewers apply judgment rather than catching gaps.
+
+**Example 2: Equity research initiation with compliance review**
+User: "We're initiating coverage on a mid-cap industrials name. Where do I start?"
+Applied: The skill routes through outcome-first-thinking, research-before-acting, and source-before-claiming before any model or note is drafted, then enforces the compliance review gate before finishing-a-task.
+Result: Every statistic in the initiation report traces to a named source, and the workflow pauses at the correct compliance checkpoint.
+
+**Example 3: Fund NAV tieout with reconciliation breaks**
+User: "We have breaks in the NAV tieout and the controller needs it by end of day."
+Applied: The skill routes to systematic-problem-solving before break-trace — blocking any immediate fix attempt — then enforces context-isolation between fund entities and verification-before-completion before the controller review gate.
+Result: Root cause is identified before any correction is made, reducing the risk of masking the break rather than resolving it.
+
+## Troubleshooting
+
+**A financial-services skill was run before any sosai-superpowers skill was invoked.**
+Stop and restart. Run brainstorming or outcome-first-thinking first. Skipping the front-end process skills produces outputs that lack a clear brief and are harder to verify downstream.
+
+**The wrong process skill was used for the stage — for example, brainstorming was run before a reconciliation break instead of systematic-problem-solving.**
+Check the "Which skill wraps which stage" table. Reconciliation failures and model errors map to systematic-problem-solving, not brainstorming. Each stage has a specific pairing for a reason.
+
+**verification-before-completion was skipped before sending to a human review gate.**
+Do not proceed. Run verification-before-completion now against the artifact before it reaches IC, compliance, or the client. This is the non-negotiable gate before every human review.
+
+**source-before-claiming was not run on a CIM or client report that contains external statistics.**
+Treat the output as undeliverable. Every externally distributed document with numbers or figures must pass source-before-claiming first. This is a compliance and legal exposure issue, not a quality preference.
+
+**Context from the planning stage was not passed to the financial-services subagent in a parallel workflow.**
+Re-run dispatching-parallel-agents and explicitly include the brief, assumptions, and plan in each subagent prompt. Parallel agents have no shared memory — each one needs the full context to stay aligned.
 
 ## Red Flags
 

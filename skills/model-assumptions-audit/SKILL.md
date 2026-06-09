@@ -1,6 +1,10 @@
 ---
 name: model-assumptions-audit
-description: Use after building any financial model or quantitative analysis — before delivering — to verify key assumptions are documented, outputs are numerically plausible, and nothing is hardcoded that should be formula-driven
+description: Audits financial models and quantitative analyses by verifying assumption documentation, numerical plausibility, and hardcoded values before delivery. Use after building any DCF, LBO, 3-statement model, returns analysis, budget, or financial projection — and before sharing with a senior reviewer, client, or investment committee.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Model Assumptions Audit
@@ -155,6 +159,40 @@ Flags:
 **Items requiring human judgment:**
 - [List any plausibility concerns that require domain expertise to assess]
 ```
+
+## Examples
+
+**Example 1: DCF model pre-delivery review**
+User: "I just finished the DCF for the Meridian acquisition. Can you run the assumptions audit before I send it to the IC?"
+Applied: The skill checks that every key driver (WACC components, revenue growth, terminal growth rate, tax rate) is sourced and rationale-documented, runs order-of-magnitude and direction checks on outputs, and scans for hardcoded rates or multiples.
+Result: An audit report flagging two undocumented assumptions and one hardcoded discount rate that appears in three separate cells.
+
+**Example 2: LBO model after a late-stage update**
+User: "We updated the debt structure this morning. Run the audit before the 4pm call."
+Applied: The skill re-checks all affected drivers — interest rate, debt schedule, and exit multiple — for documentation completeness, verifies that EBITDA coverage and IRR still fall within plausible ranges, and confirms no new hardcodes were introduced during the edit.
+Result: A focused audit report showing one direction-check flag (interest expense not declining with paydown) that needs investigation before the call.
+
+**Example 3: Budget model for board presentation**
+User: "The annual budget model is done. Audit it before it goes to the board deck."
+Applied: The skill verifies that revenue growth drivers, headcount assumptions, and cost escalation rates are each documented with a specific source, checks that margin direction is consistent with the revenue build, and flags any manually typed prior-period figures.
+Result: Audit report with a summary line confirming readiness or listing the exact items to fix before the board submission.
+
+## Troubleshooting
+
+**Audit says "documented" but the source is just "per management" or "industry standard"**
+These are not valid sources. The audit should flag them as partial at best. Push back on the assumption owner for a specific document, date, or named data provider before accepting.
+
+**Plausibility checks pass but the number still feels wrong**
+The skill checks against ranges and direction — it cannot substitute for domain expertise. Escalate to a senior reviewer or sector specialist when a figure is within range but inconsistent with what you know about the specific business.
+
+**The balance sheet balances, so the hardcode detection seems unnecessary**
+Balance sheet balance does not mean formulas are correct. A hardcoded figure can match the right answer today and silently break on the next model update. Run hardcode detection regardless of whether the output looks clean.
+
+**Model was built from a template and most assumptions are pre-filled**
+Templates carry prior-deal assumptions. Every driver must be re-verified for the current transaction. Pre-filled does not mean documented or applicable.
+
+**Audit is run but findings are not resolved before sharing the model**
+The audit report is not a disclosure — it is a fix list. Items marked with a flag or warning must be resolved before delivery, not attached as a caveat.
 
 ## Red Flags
 

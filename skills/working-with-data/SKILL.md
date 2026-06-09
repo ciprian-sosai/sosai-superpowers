@@ -1,6 +1,10 @@
 ---
 name: working-with-data
-description: Use when working with the Anthropic data plugin — to know which sosai-superpowers skills wrap each stage of a data analysis workflow and in what order
+description: Maps sosai-superpowers process skills to each stage of a data analysis workflow, showing which skill to apply before, during, and after analysis. Use when working with the Anthropic data plugin — to know which sosai-superpowers skills wrap each stage of a data analysis workflow and in what order.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Working with the data plugin
@@ -69,6 +73,40 @@ Every claim distributed to stakeholders must trace to a specific table, query, t
 
 **3. `systematic-problem-solving` when a query returns unexpected results**
 Unexpected output is information. Fix instinct says: change the query. The right first step is to understand what was returned and why — the result may reflect a data quality issue, a wrong schema assumption, or a real finding that changes the question. Fixing before understanding discards that signal.
+
+## Examples
+
+**Example 1: Revenue decline investigation (Finance)**
+User: "Sales dropped 18% last quarter — can you analyze the data and find out why?"
+Applied: The skill flags that the question is not yet crisp enough for analysis. It directs running `outcome-first-thinking` first to define what decision the analysis must support, then `explore-data` before writing queries.
+Result: The analyst frames the question as "which product lines and regions drove the decline?" before touching data, preventing a redo.
+
+**Example 2: Marketing campaign performance dashboard (Marketing)**
+User: "I need a dashboard comparing campaign ROI across all five channels for the board meeting."
+Applied: The skill identifies this as a Multi-Angle Analysis pattern. It routes through `outcome-first-thinking`, then `dispatching-parallel-agents` for independent per-channel cuts, then `source-before-claiming` before the dashboard is finalized.
+Result: Each channel cut is traceable to a specific query and time range before the board sees it.
+
+**Example 3: Unexpected query results during churn analysis (Operations)**
+User: "My churn query is returning twice as many customers as expected — I'm going to adjust the filter."
+Applied: The skill intercepts the fix-first instinct and directs `systematic-problem-solving` before changing the query, to determine whether the result reflects a data quality issue, a wrong schema assumption, or a real finding.
+Result: The analyst discovers a duplicate records issue upstream — fixing the query first would have masked it.
+
+## Troubleshooting
+
+**Ran `outcome-first-thinking` but jumped straight to `/analyze` without writing the decision down**
+The decision framing must be explicit, not mental. Write the decision statement before opening the data plugin. If it is not written, `verification-before-completion` cannot check whether the brief was met.
+
+**Used `source-before-claiming` but only sourced the chart, not the methodology**
+Sourcing applies to the full chain: table, query, time range, filters, and any aggregation logic. A sourced chart with an unsourced methodology is still an untraceable claim.
+
+**Dispatched parallel agents but did not pass the decision framing to each agent**
+Each agent must receive the full decision context, not just the analytical cut. Without it, agents optimize for their slice and produce outputs that cannot be reconciled into a single recommendation.
+
+**Skipped `research-before-acting` because the dataset "looked familiar"**
+Schema assumptions from a previous project are a common source of wrong queries. Run `research-before-acting` on any dataset not used in the last two weeks, or any dataset owned by another team.
+
+**Ran `verification-before-completion` but only checked methodology, not the original brief**
+Methodology checks confirm the analysis is internally consistent. Brief checks confirm the analysis answers the question that was actually asked. Both are required — they are not the same check.
 
 ## Red Flags
 

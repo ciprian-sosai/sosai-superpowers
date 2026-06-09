@@ -1,6 +1,10 @@
 ---
 name: working-with-marketing
-description: Use when working with the Anthropic marketing plugin — to know which sosai-superpowers skills wrap each stage of a marketing workflow and in what order
+description: Maps sosai-superpowers process skills to each stage of a marketing workflow — clarifying outcomes, verifying claims, and sequencing parallel work. Use when working with the Anthropic marketing plugin to know which sosai-superpowers skills wrap each stage of a marketing workflow and in what order.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Working with the marketing plugin
@@ -66,6 +70,40 @@ Competitive claims and performance metrics distributed to leadership or publishe
 
 **3. `brainstorming` before `draft-content`**
 `/draft-content` produces good copy for the brief you give it. If the brief is wrong — wrong audience, wrong message hierarchy, wrong CTA — the copy is wrong. Run `brainstorming` first to surface: who is the primary reader, what do they currently believe, what should change, what is the single most important message, what is the one action you are asking for. The output of that session is the input to `/draft-content`.
+
+## Examples
+
+**Example 1: Campaign launch with competitive claims**
+User: "We need to launch a demand-gen campaign next month targeting mid-market finance teams. I have a brief ready."
+Applied: The skill identifies that `outcome-first-thinking` must run before `/campaign-plan`, and that any competitive or market share claims in the brief must pass through `source-before-claiming` before distribution.
+Result: The campaign brief includes a defined conversion metric and all competitive figures trace to verifiable sources before going to leadership.
+
+**Example 2: Content piece stuck in revision cycles**
+User: "We're on the fourth revision of this whitepaper and the stakeholder keeps asking for changes."
+Applied: The skill flags the revision loop as a red flag indicating a brief problem, not a copy problem, and routes to `brainstorming` to surface audience, message hierarchy, and CTA before any further drafting.
+Result: The brainstorming session reveals the primary reader and single most important message were misaligned in the original brief, giving the writer a corrected input for the next draft.
+
+**Example 3: Multi-channel campaign being built sequentially**
+User: "I'm working through the email sequence first, then I'll do the social content, then the paid ads."
+Applied: The skill redirects to `dispatching-parallel-agents` so each channel is briefed simultaneously rather than in sequence.
+Result: All channel content is developed in parallel, cutting planning time and ensuring consistent messaging across email, social, and paid from the start.
+
+## Troubleshooting
+
+**`/campaign-plan` was run without first using `outcome-first-thinking`, and the output feels unfocused**
+Stop and write the one-sentence conversion statement ("We want [audience] to [action] by [date], measured by [metric]") before proceeding. Do not continue revising the campaign plan output — fix the input first.
+
+**`source-before-claiming` was skipped and competitive claims are already in a draft going to leadership**
+Pull the draft before it is distributed. Run `source-before-claiming` against each market share figure or competitive statement. Replace any claim that cannot be traced to a specific report, survey, or platform dataset.
+
+**`brainstorming` was run after `/draft-content` instead of before it**
+The copy is already written to the wrong brief. Use the brainstorming output to identify the specific brief errors, then re-run `/draft-content` with the corrected inputs. Do not edit the existing draft — rewrite from the corrected brief.
+
+**The workflow diagram was followed but the marketing plugin output was not passed into the sosai-superpowers skill**
+Each skill needs the actual output as context, not just a summary. When chaining skills, paste the full campaign plan, content brief, or claim list into the next skill's input — not a description of it.
+
+**`verification-before-completion` was run but only checked brand voice, not legal or accuracy**
+Verification covers three gates: brand alignment, factual accuracy, and legal/compliance. If only one was checked, re-run the verification step with explicit instructions to check all three before publishing.
 
 ## Red Flags
 

@@ -1,6 +1,10 @@
 ---
 name: writing-plans
-description: Use when about to execute multi-step work — before starting any task with more than two steps — to create a written plan first
+description: Creates a structured, executor-ready written plan before multi-step work begins. Use when about to execute any task with more than two steps — before starting work, not after.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Writing Plans
@@ -118,6 +122,40 @@ After saving the plan, offer:
 
 **If subagent-driven:** Use `sosai-superpowers:subagent-driven-execution`
 **If inline:** Use `sosai-superpowers:executing-plans`
+
+## Examples
+
+**Example 1: Marketing campaign launch**
+User: "We need to launch a Q3 email campaign for our enterprise segment — can you help me get this done?"
+Applied: Before drafting any content, the skill creates a plan covering audience segmentation, copy drafting, approval, and send sequence as separate tasks with success criteria.
+Result: A saved plan at `docs/plans/2026-06-09-q3-enterprise-email-campaign.md` ready for execution or handoff to a subagent.
+
+**Example 2: Quarterly financial close**
+User: "Walk me through closing the books for Q2 — there's a lot of moving parts."
+Applied: The skill checks for independent workstreams (AP reconciliation vs. revenue recognition) and splits them into two plans, each with numbered steps and verifiable success criteria.
+Result: Two separate plan files, each producible and verifiable independently, with clear executor instructions at every step.
+
+**Example 3: Vendor contract review and onboarding**
+User: "We just signed with a new logistics vendor — let's get them set up and the contract filed."
+Applied: The skill flags that contract filing and vendor onboarding are independent workstreams and prompts a split, then writes each plan with specific owners, file paths, and confirmation steps.
+Result: Two focused plans that can be handed off to different team members without coordination gaps.
+
+## Troubleshooting
+
+**Plan written but steps say what to do, not how**
+Each step must include enough detail that an unfamiliar executor can act without asking questions. Go back and replace every instruction-without-method with a concrete how.
+
+**Success criteria written but not independently checkable**
+Phrases like "ensure quality" or "looks good" are not criteria. Rewrite each one as a specific condition the executor can confirm — a number, a file existing, a named person approving.
+
+**Plan covers two unrelated deliverables in one document**
+If two groups of tasks share no outputs and one could be handed off without the other, they are separate plans. Split them now; do not combine for convenience.
+
+**Step references output from an earlier task by the wrong name**
+Task-to-task handoffs break when names don't match exactly. Do a consistency pass: every reference to a prior deliverable must use the exact name and path that task produces it under.
+
+**Plan saved but execution skill not offered**
+After saving, always offer the subagent-driven vs. inline choice. Skipping this leaves the executor without a clear next action and the plan may never run.
 
 ## Red Flags
 

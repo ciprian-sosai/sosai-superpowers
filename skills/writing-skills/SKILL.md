@@ -1,6 +1,10 @@
 ---
 name: writing-skills
-description: Use when creating a new cowork skill, editing an existing skill, or verifying a skill works before sharing it
+description: Guides skill authors through creating, editing, and validating cowork skills using evaluation-driven methods and description best practices. Use when creating a new cowork skill, editing an existing skill, or verifying a skill works before sharing it.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Writing Skills
@@ -59,8 +63,8 @@ Core principle in 1-2 sentences.
 The `description` field is how Claude decides whether to load your skill. Get this wrong and the skill is invisible.
 
 **Rules:**
-- Start with "Use when..."
-- Describe ONLY triggering conditions — never summarize what the skill does
+- Start with a capability statement (what the skill does), then add "Use when..." trigger conditions
+- Describe ONLY triggering conditions after the capability statement — never summarize workflow steps
 - Under 500 characters
 - Third person (injected into system prompt)
 - **NEVER include workflow summary** — agents will follow the description and skip the skill body
@@ -72,8 +76,8 @@ description: Use when creating skills — write test first, document rationaliza
 # BAD: Too vague
 description: Helps with skills
 
-# GOOD: Triggering conditions only
-description: Use when creating a new cowork skill, editing an existing skill, or verifying a skill works before sharing it
+# GOOD: Capability statement first, then triggering conditions
+description: Guides skill authors through creating, editing, and validating cowork skills using evaluation-driven methods and description best practices. Use when creating a new cowork skill, editing an existing skill, or verifying a skill works before sharing it.
 ```
 
 ## Token Budget
@@ -201,7 +205,7 @@ See `references/anthropic-best-practices.md` for deeper guidance on writing effe
 
 Before deploying any skill:
 
-- [ ] Description starts with "Use when..." and contains NO workflow summary
+- [ ] Description starts with a capability statement, followed by "Use when..." trigger conditions, and contains NO workflow summary
 - [ ] Description is under 500 characters and third person
 - [ ] All steps are actionable — no "handle appropriately" or "as needed"
 - [ ] Red flags table covers common rationalizations
@@ -210,3 +214,37 @@ Before deploying any skill:
 - [ ] Tested: ran scenario with skill, agent now complies
 - [ ] Companion files (if any) are in a `references/` subdirectory
 - [ ] Committed to git
+
+## Examples
+
+**Example 1: Creating a finance close skill**
+User: "I need a skill that makes Claude follow our month-end close checklist without skipping steps."
+Applied: The skill walks through baseline testing first — running a pressure scenario to document where Claude shortcuts the checklist — then writing minimal rules targeting those specific failures.
+Result: A deployed skill with a rationalization table and hard gate that reliably enforces the checklist under time pressure.
+
+**Example 2: Fixing a skill nobody uses**
+User: "I built a skill for legal review but Claude never seems to load it."
+Applied: The skill diagnoses the description — it likely summarizes the workflow instead of stating triggering conditions — and rewrites it to start with "Use when..." targeting the exact moment legal review is needed.
+Result: A corrected description under 500 characters that Claude now matches reliably when legal review comes up.
+
+**Example 3: Auditing an existing skill before sharing with the team**
+User: "Can you review this skill I wrote for running vendor evaluations before I share it with the operations team?"
+Applied: The skill runs the quality checklist — checking description format, word budget, actionable steps, tested scenarios, and companion file structure — and flags gaps before deployment.
+Result: A list of specific fixes (e.g., description over 500 chars, no red flags table, reference file nested two levels deep) with clear remediation steps.
+
+## Troubleshooting
+
+**Skill loads but agent still skips the process**
+The description likely summarizes the workflow, so the agent treats it as instructions and stops there. Strip the description down to triggering conditions only — no steps, no methods.
+
+**Baseline test passes but agent fails in real use**
+Your test scenario lacked realistic pressure. Rerun baseline combining time pressure, sunk cost ("you're halfway done"), and a user who says "just skip it this time." Document new rationalizations and add counters.
+
+**Skill is over word budget but content feels necessary**
+Move heavy reference material to a `references/` subdirectory and link from SKILL.md. Replace prose paragraphs with tables. Cross-reference other loaded skills rather than repeating their content.
+
+**Companion files aren't being read by Claude**
+Files nested more than one level deep are often partially read or skipped. All companion files must be linked directly from SKILL.md and live in a single `references/` subdirectory — no sub-subdirectories.
+
+**Agent finds a new loophole after testing passes**
+Add the specific rationalization verbatim to the Red Flags table and re-test. One missed loophole means re-running the full pressure scenario, not just patching the text.

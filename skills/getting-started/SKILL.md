@@ -1,6 +1,10 @@
 ---
 name: getting-started
-description: Use when you are new to sosai-superpowers, want to understand what it does, or want a guided tour of the skills and how they apply to your work
+description: Guides a new user through a personalized interactive tour of sosai-superpowers, covering what each skill does and which ones apply to their specific work. Use when you are new to sosai-superpowers, want to understand what it does, or want a guided tour of the skills and how they apply to your work.
+license: MIT
+metadata:
+  author: Ciprian Sosai <ciprian@sosai.ro>
+  version: "1.0"
 ---
 
 # Getting Started with sosai-superpowers
@@ -194,3 +198,37 @@ Use these throughout the tour — pick the one that fits the user's work context
 - Check in after each group — "useful? want to go deeper or keep moving?"
 - End with a concrete action — not "good luck" but "here's the first thing to try"
 - Keep tone warm and direct — this is a conversation, not a manual
+
+## Examples
+
+**Example 1: Operations manager learning which skills apply to project work**
+User: "I just installed sosai-superpowers. What does it do?"
+Applied: The skill opens a conversation, asks what kind of work the user does, then walks through each skill group using project planning examples — showing how writing-plans and verification-before-completion apply directly to their multi-step initiatives.
+Result: The user finishes knowing which three skills to try first and exactly how to invoke them.
+
+**Example 2: Finance analyst frustrated with Claude producing wrong analysis**
+User: "Claude keeps giving me confident numbers that turn out to be wrong. Can this plugin help?"
+Applied: The skill identifies this as a source-before-claiming and outcome-first-thinking problem, demonstrates both with a financial reporting example, and explains the structural fix.
+Result: The analyst understands why the errors happen and what to say to prevent them next time.
+
+**Example 3: Marketing lead who has used Claude before but never systematically**
+User: "I've been using Claude for months but I feel like I'm not getting the most out of it."
+Applied: The skill skips basic orientation, asks about their specific frustrations, then maps those frustrations to the relevant skills — in this case brainstorming and finishing-a-task for campaign brief work.
+Result: The user gets a targeted tour of four skills relevant to their workflow instead of sitting through all sixteen.
+
+## Troubleshooting
+
+**Claude presents all skills at once instead of one group per message**
+Re-invoke the skill and say: "Walk me through this one step at a time — wait for my answer before continuing." The skill is designed for one step per message; Claude should not compress the tour.
+
+**The examples don't match my industry or work type**
+Tell Claude your actual role and context before it starts: "I'm a [role] and I mainly use Claude for [task]." The skill uses your work type to generate examples — without it, examples default to generic.
+
+**Claude finishes the tour without suggesting a first action**
+The tour should end with a concrete first task. If it doesn't, ask directly: "Based on what I've told you, what's the best skill for me to try first and how do I invoke it?"
+
+**The tour feels like a feature list, not a conversation**
+Interrupt and say: "Skip the overview — just ask me what I do and show me the skills that matter for my work." The skill is designed to be steerable; you don't have to follow the default sequence.
+
+**I already know some skills but want to learn specific ones**
+Say: "I've used [skill names] before — skip those and just cover [skill group]." The tour supports jumping directly to a section; you don't need to start from the beginning.
