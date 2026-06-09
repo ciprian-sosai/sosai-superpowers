@@ -3,11 +3,14 @@ name: using-sosai-superpowers
 description: Use when starting any cowork session — establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
 ---
 
-<EXTREMELY-IMPORTANT>
+---
+**CRITICAL RULE**
+
 If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
 
-IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
-</EXTREMELY-IMPORTANT>
+**IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.**
+
+---
 
 # Using sosai-superpowers
 

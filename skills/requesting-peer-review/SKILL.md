@@ -11,7 +11,7 @@ A review request is only as good as the context you provide. "Let me know what y
 
 **Two modes:**
 - **Human reviewer** — use the request template below
-- **Agent reviewer** — use `peer-reviewer.md` to dispatch a review subagent
+- **Agent reviewer** — use `references/peer-reviewer.md` to dispatch a review subagent
 
 ## Self-Review First
 
@@ -45,7 +45,7 @@ Do not send work for review that you know is incomplete. Fix what you can first.
 
 ## Agent Reviewer
 
-To dispatch a review subagent, use the template in `peer-reviewer.md`.
+To dispatch a review subagent, use the template in `references/peer-reviewer.md`.
 
 Use an agent reviewer when:
 - You want structured, consistent feedback across defined dimensions

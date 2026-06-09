@@ -11,7 +11,7 @@ A **skill** is a reference guide for a proven discipline or technique. It tells 
 
 **Core principle:** Test your skill before deploying it. Watch an agent work without the skill — document what goes wrong — then write the skill to fix exactly those failures.
 
-**Official guidance:** For Anthropic's official skill authoring best practices, see `anthropic-best-practices.md`.
+**Official guidance:** For Anthropic's official skill authoring best practices, see `references/anthropic-best-practices.md`.
 
 ## What Is a Skill?
 
@@ -112,7 +112,7 @@ digraph when_flowchart {
 
 **Never use flowcharts for:** reference material (use tables), linear instructions (use numbered lists), code examples (use code blocks).
 
-See `graphviz-conventions.dot` for shape and style rules.
+See `references/graphviz-conventions.dot` for shape and style rules.
 
 ## File Organization
 
@@ -126,11 +126,12 @@ skill-name/
 ```
 skill-name/
   SKILL.md           # Overview + links
-  reference.md       # Heavy reference (100+ lines)
-  template.md        # Reusable template
+  references/
+    reference.md     # Heavy reference (100+ lines)
+    template.md      # Reusable template
 ```
 
-**Rule:** Keep references one level deep from SKILL.md. Never nest reference files inside reference files — Claude may only partially read deeply nested files.
+**Rule:** Place companion files in a `references/` subdirectory. Never nest reference files inside each other — Claude may only partially read deeply nested files.
 
 ## Evaluation-Driven Creation
 
@@ -183,7 +184,7 @@ Discipline skills (ones that enforce rules) need to resist rationalization. Agen
 All of these mean: stop and follow the process.
 ```
 
-See `anthropic-best-practices.md` for deeper guidance on writing effective skills.
+See `references/anthropic-best-practices.md` for deeper guidance on writing effective skills.
 
 ## Common Mistakes
 
@@ -207,5 +208,5 @@ Before deploying any skill:
 - [ ] Under word budget (check with word count)
 - [ ] Tested: ran baseline scenario without skill, documented failures
 - [ ] Tested: ran scenario with skill, agent now complies
-- [ ] Companion files (if any) are one level deep from SKILL.md
+- [ ] Companion files (if any) are in a `references/` subdirectory
 - [ ] Committed to git

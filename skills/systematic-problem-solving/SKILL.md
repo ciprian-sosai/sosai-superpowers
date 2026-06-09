@@ -61,7 +61,7 @@ Complete each phase before proceeding to the next.
    - New process, new tool, new person, new data, new requirement?
    - Changes often reveal themselves as causes
 
-4. **Trace the chain** — see `root-cause-analysis.md` for the full technique
+4. **Trace the chain** — see `references/root-cause-analysis.md` for the full technique
    - Where in the chain does the problem first appear?
    - What produced that output?
    - Keep tracing back until you reach the original source
@@ -132,8 +132,8 @@ Complete each phase before proceeding to the next.
 
 ## Companion Guides
 
-- **`root-cause-analysis.md`** — technique for tracing a problem backward to its source
-- **`problem-framing.md`** — how to state the problem clearly before investigating
+- **`references/root-cause-analysis.md`** — technique for tracing a problem backward to its source
+- **`references/problem-framing.md`** — how to state the problem clearly before investigating
 
 ## Quick Reference
 

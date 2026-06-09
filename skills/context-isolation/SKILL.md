@@ -1,6 +1,6 @@
 ---
 name: context-isolation
-description: Use when switching between tasks, starting a fresh task in an active session, or when context from a previous task might affect the current one
+description: Use when switching between tasks, starting a fresh task in an active session, or when context from a previous task might affect the current one — user says "let's move on to", "now let's do", "switching to", "forget about X", or starts a new topic mid-session
 ---
 
 # Context Isolation

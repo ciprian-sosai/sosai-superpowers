@@ -36,7 +36,7 @@ A browser-based companion for showing mockups, diagrams, and visual options duri
 
 Wait for the user's response. If they decline, continue text-only.
 
-**If they accept:** Read `skills/brainstorming/visual-companion.md` for the full guide before starting the server.
+**If they accept:** Read `skills/brainstorming/references/visual-companion.md` for the full guide before starting the server.
 
 **Per-question decision:** Even after acceptance, use the browser only for content that IS visual. A question about trade-offs is a text question. A question about which process flow works better is a visual question.
 

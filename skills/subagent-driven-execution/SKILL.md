@@ -17,45 +17,45 @@ Dispatch one fresh subagent per task. Each subagent starts with zero context fro
 digraph process {
     rankdir=TB;
     "Read plan, extract all tasks, create todo list" [shape=box];
-    "Dispatch task executor subagent\n(use task-executor-prompt.md)" [shape=box];
+    "Dispatch task executor subagent\n(use references/task-executor-prompt.md)" [shape=box];
     "Subagent has questions?" [shape=diamond];
     "Answer questions" [shape=box];
     "Subagent executes task and reports" [shape=box];
-    "Dispatch spec reviewer\n(use spec-reviewer-prompt.md)" [shape=box];
+    "Dispatch spec reviewer\n(use references/spec-reviewer-prompt.md)" [shape=box];
     "Spec compliant?" [shape=diamond];
     "Executor fixes gaps" [shape=box];
-    "Dispatch quality reviewer\n(use quality-reviewer-prompt.md)" [shape=box];
+    "Dispatch quality reviewer\n(use references/quality-reviewer-prompt.md)" [shape=box];
     "Quality approved?" [shape=diamond];
     "Executor fixes quality issues" [shape=box];
     "Mark task complete" [shape=box];
     "More tasks?" [shape=diamond];
     "Done" [shape=doublecircle];
 
-    "Read plan, extract all tasks, create todo list" -> "Dispatch task executor subagent\n(use task-executor-prompt.md)";
-    "Dispatch task executor subagent\n(use task-executor-prompt.md)" -> "Subagent has questions?";
+    "Read plan, extract all tasks, create todo list" -> "Dispatch task executor subagent\n(use references/task-executor-prompt.md)";
+    "Dispatch task executor subagent\n(use references/task-executor-prompt.md)" -> "Subagent has questions?";
     "Subagent has questions?" -> "Answer questions" [label="yes"];
-    "Answer questions" -> "Dispatch task executor subagent\n(use task-executor-prompt.md)";
+    "Answer questions" -> "Dispatch task executor subagent\n(use references/task-executor-prompt.md)";
     "Subagent has questions?" -> "Subagent executes task and reports" [label="no"];
-    "Subagent executes task and reports" -> "Dispatch spec reviewer\n(use spec-reviewer-prompt.md)";
-    "Dispatch spec reviewer\n(use spec-reviewer-prompt.md)" -> "Spec compliant?" ;
+    "Subagent executes task and reports" -> "Dispatch spec reviewer\n(use references/spec-reviewer-prompt.md)";
+    "Dispatch spec reviewer\n(use references/spec-reviewer-prompt.md)" -> "Spec compliant?" ;
     "Spec compliant?" -> "Executor fixes gaps" [label="no"];
-    "Executor fixes gaps" -> "Dispatch spec reviewer\n(use spec-reviewer-prompt.md)" [label="re-review"];
-    "Spec compliant?" -> "Dispatch quality reviewer\n(use quality-reviewer-prompt.md)" [label="yes"];
-    "Dispatch quality reviewer\n(use quality-reviewer-prompt.md)" -> "Quality approved?";
+    "Executor fixes gaps" -> "Dispatch spec reviewer\n(use references/spec-reviewer-prompt.md)" [label="re-review"];
+    "Spec compliant?" -> "Dispatch quality reviewer\n(use references/quality-reviewer-prompt.md)" [label="yes"];
+    "Dispatch quality reviewer\n(use references/quality-reviewer-prompt.md)" -> "Quality approved?";
     "Quality approved?" -> "Executor fixes quality issues" [label="no"];
-    "Executor fixes quality issues" -> "Dispatch quality reviewer\n(use quality-reviewer-prompt.md)" [label="re-review"];
+    "Executor fixes quality issues" -> "Dispatch quality reviewer\n(use references/quality-reviewer-prompt.md)" [label="re-review"];
     "Quality approved?" -> "Mark task complete" [label="yes"];
     "Mark task complete" -> "More tasks?";
-    "More tasks?" -> "Dispatch task executor subagent\n(use task-executor-prompt.md)" [label="yes"];
+    "More tasks?" -> "Dispatch task executor subagent\n(use references/task-executor-prompt.md)" [label="yes"];
     "More tasks?" -> "Done" [label="no"];
 }
 ```
 
 ## Prompt Templates
 
-- `task-executor-prompt.md` — template for dispatching a task executor subagent
-- `spec-reviewer-prompt.md` — template for verifying output matches the task spec
-- `quality-reviewer-prompt.md` — template for verifying output quality
+- `references/task-executor-prompt.md` — template for dispatching a task executor subagent
+- `references/spec-reviewer-prompt.md` — template for verifying output matches the task spec
+- `references/quality-reviewer-prompt.md` — template for verifying output quality
 
 ## Handling Executor Status
 

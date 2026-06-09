@@ -1,6 +1,6 @@
 ---
 name: dispatching-parallel-agents
-description: Use when facing 2 or more independent tasks that do not share state or depend on each other's results
+description: Use when facing 2 or more independent tasks that do not share state or depend on each other's results — user says "run these in parallel", "do X and Y at the same time", "work on both", or assigns multiple unrelated tasks at once
 ---
 
 # Dispatching Parallel Agents
