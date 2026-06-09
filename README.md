@@ -47,6 +47,10 @@ Restart Claude cowork. Skills are available immediately as `sosai-superpowers:<s
 | `working-with-product-management` | When using the Anthropic product-management plugin |
 | `working-with-operations` | When using the Anthropic operations plugin |
 | `working-with-marketing` | When using the Anthropic marketing plugin |
+| `working-with-daloopa` | When using the Anthropic daloopa plugin |
+| `working-with-engineering` | When using the Anthropic engineering plugin |
+| `working-with-enterprise-search` | When using the Anthropic enterprise-search plugin |
+| `working-with-small-business` | When using the Anthropic small-business plugin |
 | `model-assumptions-audit` | After building any financial model — verify assumptions and plausibility |
 
 ---

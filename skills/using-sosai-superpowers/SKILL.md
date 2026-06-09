@@ -53,6 +53,10 @@ Use the `Skill` tool with the skill name: `sosai-superpowers:<skill-name>`
 | Working with the product-management plugin | `working-with-product-management` |
 | Working with the operations plugin | `working-with-operations` |
 | Working with the marketing plugin | `working-with-marketing` |
+| Working with the daloopa plugin | `working-with-daloopa` |
+| Working with the engineering plugin | `working-with-engineering` |
+| Working with the enterprise-search plugin | `working-with-enterprise-search` |
+| Working with the small-business plugin | `working-with-small-business` |
 | After building any financial model or analysis | `model-assumptions-audit` |
 
 ## Relationship with Specialized Plugins
