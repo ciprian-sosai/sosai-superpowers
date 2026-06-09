@@ -17,6 +17,11 @@ Clarify what you're actually building before you build it. Unexamined assumption
 
 ## Process
 
+**Signal the full gate upfront.** On the very first response, tell the user how this works:
+> "I'll ask a few questions one at a time, then propose some approaches for your approval before we begin."
+
+This makes the design-approval step a visible commitment, not a silent future obligation — and closes the door on "start now, adjust later" before it opens.
+
 1. **Understand context** — review any relevant files, previous work, or background
 2. **Ask clarifying questions** — one at a time, until you understand purpose, constraints, and success criteria
 3. **Propose 2-3 approaches** — with trade-offs and your recommendation
@@ -85,3 +90,4 @@ This is the most common failure mode. Prompt Claude with: "Before you proceed, w
 | "This is too simple to need clarification" | Simple tasks hide the most assumptions. Ask. |
 | "I can figure out what they want" | You cannot. Ask. |
 | "Let me just start and adjust" | Starting wrong wastes more time than asking. |
+| "We don't have time for this — I'll ask one question and then write it" | Time pressure is not an exception to the hard gate. Urgency makes skipping design approval more costly, not less. Always propose 2-3 approaches and get approval before writing, regardless of stated deadlines. |
