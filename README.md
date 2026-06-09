@@ -57,6 +57,16 @@ These skills enforce one principle: **discipline before action**. Each skill is 
 
 ---
 
+## Testing
+
+Discipline skills are verified through behavioral pressure tests — each skill is run against scenarios designed to trigger the rationalizations it is meant to prevent. Tests compare agent behavior with and without the skill loaded.
+
+📋 **Test results and scenarios:** [docs/tests/behavioral-tests.md](docs/tests/behavioral-tests.md)
+
+Contributors modifying discipline skills must re-run the relevant scenarios before submitting. See [CLAUDE.md](CLAUDE.md) for the full contribution policy.
+
+---
+
 ## License
 
 MIT © Ciprian Sosai <ciprian@sosai.ro>

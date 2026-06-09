@@ -141,6 +141,8 @@ skill-name/
 
 **Test before deploying.** If you didn't see an agent fail without the skill, you don't know if it teaches the right thing.
 
+See `docs/tests/behavioral-tests.md` for the existing test suite — format, scenarios, verdicts, and how to add new tests.
+
 ### Process
 
 **1. Baseline (watch it fail)**
