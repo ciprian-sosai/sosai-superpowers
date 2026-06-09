@@ -40,6 +40,12 @@ Use the `Skill` tool with the skill name: `sosai-superpowers:<skill-name>`
 | Creating a new skill | `writing-skills` |
 | Working with the financial-services plugin | `working-with-financial-services` |
 | Working with the finance (accounting) plugin | `working-with-finance` |
+| Working with the legal plugin | `working-with-legal` |
+| Working with the data plugin | `working-with-data` |
+| Working with the sales plugin | `working-with-sales` |
+| Working with the product-management plugin | `working-with-product-management` |
+| Working with the operations plugin | `working-with-operations` |
+| Working with the marketing plugin | `working-with-marketing` |
 | After building any financial model or analysis | `model-assumptions-audit` |
 
 ## Relationship with Specialized Plugins

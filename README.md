@@ -41,6 +41,12 @@ Restart Claude cowork. Skills are available immediately as `sosai-superpowers:<s
 | `research-before-acting` | Before producing output — understand the situation |
 | `working-with-financial-services` | When using the Anthropic financial-services plugin |
 | `working-with-finance` | When using the Anthropic finance (accounting) plugin |
+| `working-with-legal` | When using the Anthropic legal plugin |
+| `working-with-data` | When using the Anthropic data plugin |
+| `working-with-sales` | When using the Anthropic sales plugin |
+| `working-with-product-management` | When using the Anthropic product-management plugin |
+| `working-with-operations` | When using the Anthropic operations plugin |
+| `working-with-marketing` | When using the Anthropic marketing plugin |
 | `model-assumptions-audit` | After building any financial model — verify assumptions and plausibility |
 
 ---
