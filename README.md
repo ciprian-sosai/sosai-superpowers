@@ -51,6 +51,18 @@ Restart Claude cowork. Skills are available immediately as `sosai-superpowers:<s
 
 ---
 
+## Using alongside superpowers
+
+This plugin is inspired by Jesse Vincent's [superpowers](https://github.com/obra/superpowers). Both can be installed simultaneously — they use separate namespaces (`superpowers:*` vs `sosai-superpowers:*`) and don't conflict at a system level.
+
+**The distinction:** superpowers is developer-focused — TDD, git worktrees, code review, systematic debugging. sosai-superpowers is business-professional focused — domain plugin integrations, source discipline, outcome framing, financial model auditing. If you do both kinds of work, install both.
+
+**Six skills exist in both plugins** with different content: `brainstorming`, `writing-plans`, `executing-plans`, `dispatching-parallel-agents`, `verification-before-completion`, `writing-skills`. The superpowers versions reference commits, tests, and code. The sosai-superpowers versions are for business tasks with no code context. Both session-start skills load when both plugins are installed — this adds some token overhead but causes no behavioural conflict.
+
+**The one real tension:** if both `writing-skills` skills are active and you create a new cowork skill, Claude may follow either plugin's conventions. Invoke `sosai-superpowers:writing-skills` explicitly if you want this plugin's conventions applied.
+
+---
+
 ## Philosophy
 
 These skills enforce one principle: **discipline before action**. Each skill is a lightweight guardrail that prevents the most common failure modes in cowork tasks — acting without clarity, delivering without verification, stating without sources.
