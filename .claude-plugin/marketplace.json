@@ -1,0 +1,13 @@
+{
+  "name": "sosai-superpowers-marketplace",
+  "owner": {
+    "name": "Ciprian Sosai"
+  },
+  "plugins": [
+    {
+      "name": "sosai-superpowers",
+      "source": "./",
+      "description": "Discipline skills for Claude cowork — clarify before acting, plan before executing, verify before delivering"
+    }
+  ]
+}
